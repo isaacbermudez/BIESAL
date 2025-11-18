@@ -27,10 +27,61 @@ const { title } = Astro.props;
     />
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
-    <Navbar />
-    <slot />
-    <Footer />
+    <!-- Finisher Header Background - Fixed to viewport -->
+    <div class="header finisher-header" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 0; pointer-events: none;"></div>
+    
+    <!-- Content wrapper with relative positioning -->
+    <div style="position: relative; z-index: 1;">
+      <Navbar />
+      <slot />
+      <Footer />
+    </div>
   </body>
+
+  <!-- Load Finisher Header Script -->
+  <script is:inline src="/scripts/finisher-header.es5.min.js"></script>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize Finisher Header
+      new FinisherHeader({
+        "count": 30,
+        "size": {
+          "min": 2,
+          "max": 6,
+          "pulse": 0
+        },
+        "speed": {
+          "x": {
+            "min": 0,
+            "max": 0.3
+          },
+          "y": {
+            "min": 0,
+            "max": 0.5
+          }
+        },
+        "colors": {
+          "background": "transparent",
+          "particles": [
+            "#4f46e5",
+            "#10b981",
+            "#3b82f6"
+          ]
+        },
+        "blending": "overlay",
+        "opacity": {
+          "center": 0.8,
+          "edge": 0
+        },
+        "skew": -1,
+        "shapes": [
+          "c"
+        ]
+      });
+    });
+  </script>
+
   <script>
     const switchTheme = document.querySelector(
       "[data-switch-theme]"
@@ -155,5 +206,10 @@ const { title } = Astro.props;
   [data-nav-overlay][data-is-visible="true"] {
     visibility: visible;
     display: flex;
+  }
+
+  /* Finisher Header - ensure it stays behind all content */
+  .finisher-header {
+    pointer-events: none;
   }
 </style>
