@@ -1,6 +1,12 @@
 ---
 // Define las propiedades que recibirá el componente
 const { id = "tidycal-modal", title = "Agenda tu Reunión Virtual", path = "biesal/cotizacion" } = Astro.props;
+// Definimos el ID del panel del modal aquí para usarlo en el script y en el HTML
+const panelId = `${id}-panel`; 
+
+// Definimos la llamada de cierre como una variable para el binding en el botón
+// Esto asegura que el ID se pase correctamente al string de JavaScript.
+const closeCall = `closeModal('${id}')`; 
 ---
 
 <div id={id} class="fixed inset-0 z-[100] hidden transition-all duration-300" aria-modal="true" role="dialog" aria-labelledby={`${id}-title`}>
@@ -9,13 +15,22 @@ const { id = "tidycal-modal", title = "Agenda tu Reunión Virtual", path = "bies
 
     <div class="relative w-full h-full p-4 md:p-8 flex justify-center items-center overflow-y-auto">
         
-        <div class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-5xl mx-auto my-auto transform transition-transform duration-300 scale-95" id={`${id}-panel`}>
+        <div 
+            id={panelId} 
+            class="bg-white dark:bg-[#1f2937] rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-5xl mx-auto my-auto transform transition-transform duration-300 scale-95"
+        >
             
             <div class="flex justify-between items-center pb-4 border-b border-gray-100 dark:border-gray-700">
                 <h3 id={`${id}-title`} class="text-2xl font-extrabold text-gray-900 dark:text-white">
                     {title}
                 </h3>
-                <button type="button" class="p-1 rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300 transition" onclick="closeModal('{id}')" aria-label="Cerrar">
+                
+                <button 
+                    type="button" 
+                    class="p-1 rounded-full text-gray-400 hover:bg-gray-100 hover:text-gray-600 dark:hover:bg-gray-700 dark:hover:text-gray-300 transition" 
+                    onclick={closeCall} 
+                    aria-label="Cerrar"
+                >
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
@@ -23,8 +38,7 @@ const { id = "tidycal-modal", title = "Agenda tu Reunión Virtual", path = "bies
             <div class="mt-6 tidycal-container">
                 <div 
                     class="tidycal-embed w-full" 
-                    data-path={path} 
-                    data-primary-color="#2563EB"
+                    data-path={path}
                 ></div>
             </div>
 
@@ -32,66 +46,57 @@ const { id = "tidycal-modal", title = "Agenda tu Reunión Virtual", path = "bies
     </div>
 </div>
 
-<script define:vars={{ id, path }}>
+<script define:vars={{ id, panelId, path }}>
     // --- LÓGICA DE CONTROL DEL MODAL ---
+    const modal = document.getElementById(id);
+    const panel = document.getElementById(panelId);
     
-    function applyOpenStyles(modal, panel) {
-        modal.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-        // Usamos requestAnimationFrame para asegurar que el DOM se haya actualizado antes de aplicar la transición
-        requestAnimationFrame(() => {
-            modal.style.opacity = '1';
-            panel.classList.remove('scale-95');
+    if (modal && panel) {
+        // Funciones de animación (mantenidas)
+        function applyOpenStyles() {
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+            requestAnimationFrame(() => {
+                modal.style.opacity = '1';
+                panel.classList.remove('scale-95');
+            });
+        }
+        
+        function applyCloseStyles() {
+            modal.style.opacity = '0';
+            panel.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }, 300);
+        }
+
+        // Exportamos las funciones de apertura/cierre
+        window.openModal = function(modalId) {
+             if (modalId === id) applyOpenStyles();
+        }
+
+        window.closeModal = function(modalId) {
+            if (modalId === id) applyCloseStyles();
+        }
+
+        // --- FUNCIONALIDAD DE CERRAR AL HACER CLIC FUERA (Mantenida) ---
+        modal.addEventListener('click', (event) => {
+            // Verifica que el clic NO haya ocurrido dentro del panel de contenido
+            // Y que el clic haya sido en el contenedor principal o el overlay
+            if (!panel.contains(event.target) && event.target !== panel && event.target === modal) {
+                window.closeModal(id);
+            }
+        });
+
+        // Cierra al presionar la tecla ESC (Mantenida)
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                window.closeModal(id);
+            }
         });
     }
-    
-    function applyCloseStyles(modal, panel) {
-        modal.style.opacity = '0';
-        panel.classList.add('scale-95');
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }, 300);
-    }
 
-    // Exportamos las funciones de apertura/cierre
-    window.openModal = function(modalId) {
-        const modal = document.getElementById(modalId);
-        const panel = document.getElementById(`${modalId}-panel`);
-        if (modal && panel) {
-             applyOpenStyles(modal, panel);
-        }
-    }
-
-    window.closeModal = function(modalId) {
-        const modal = document.getElementById(modalId);
-        const panel = document.getElementById(`${modalId}-panel`);
-        if (modal && panel) {
-            applyCloseStyles(modal, panel);
-        }
-    }
-
-    // --- NUEVA LÓGICA: CERRAR AL HACER CLIC FUERA ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.getElementById(id);
-        const panel = document.getElementById(`${id}-panel`);
-
-        if (modal && panel) {
-            modal.addEventListener('click', (event) => {
-                // Si el clic ocurrió en el modal, pero NO en el panel de contenido o sus hijos
-                if (!panel.contains(event.target) && event.target.id === id) {
-                    window.closeModal(id);
-                }
-            });
-            
-            // Si el clic es en el overlay, ya que el panel está dentro del segundo div,
-            // podemos usar el primer div como el área de clic fuera del panel.
-            // La estructura es: #modal > div.overlay > div.container > div.panel
-            modal.children[0].addEventListener('click', () => {
-                window.closeModal(id);
-            });
-        }
-    });
 
     // --- CARGA DEL SCRIPT TIDYCAL ---
     const scriptUrl = 'https://asset-tidycal.b-cdn.net/js/embed.js';
