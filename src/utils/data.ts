@@ -2,7 +2,7 @@
 
 const services = [
   {
-    title: "Eje 1: Sistema Administrativo",
+    title: "SISTEMA ADMINISTRATIVO",
     description:
       "Plataforma propia para la <strong>gestión interna centralizada</strong> (solicitudes, usuarios, reportes). <strong>Automatiza procesos clave</strong> para eliminar tareas manuales y garantizar el control operativo.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
@@ -19,7 +19,7 @@ const services = [
     ]
   },
   {
-    title: "Eje 2: Página Web",
+    title: "PÁGINA WEB",
     description:
       "<strong>Desarrollo web moderno y adaptado a tu marca.</strong> Ofrece <strong>integración total y en tiempo real</strong> con el Sistema Administrativo, gestionando automáticamente todo el tráfico y clientes.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"

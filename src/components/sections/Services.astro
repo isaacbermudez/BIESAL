@@ -2,231 +2,342 @@
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
-import { services } from '../../utils/data';
+import { services } from "../../utils/data";
 
 // Define your image paths here
-const adminSystemImg = "/images/screenshot-sistema.png"; 
-const webPageImg1 = "/images/screenshot-web1.png";       
-const webPageImg2 = "/images/screenshot-web2.png";       
+const adminSystemImg = "/images/screenshot-sistema.png";
+const webPageImg1 = "/images/screenshot-web1.png";
+const webPageImg2 = "/images/screenshot-web2.png";
 ---
 
-<section id="soluciones">
-    <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+<section id="services">
+  <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
+    <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+      <Title> Nuestra Oferta: Ecosistema Digital Integrado </Title>
 
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
-            
-            <Title>
-                Nuestra Oferta: Ecosistema Digital Integrado
-            </Title>
+      <Paragraph className="mt-8 mb-10">
+        En <span
+          class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+          ><strong>BIESAL</strong></span
+        >, nuestra propuesta es simple: conectar su gestión interna con su
+        presencia digital. Esto elimina la brecha operativa, asegura la
+        eficiencia y garantiza un crecimiento sostenido para su empresa.
+      </Paragraph>
 
-            <Paragraph className="mt-8 mb-10">
-                En <strong>BIESAL</strong>, nuestra propuesta es simple: conectar su gestión interna con su presencia digital. Esto elimina la brecha operativa, asegura la eficiencia y garantiza un crecimiento sostenido para su empresa.
-            </Paragraph>
+      <div class="grid gap-8 sm:grid-cols-2">
+        {
+          services.map((service) => (
+            <div class="p-6 rounded-xl border border-box-border bg-box-bg shadow-xl flex flex-col h-full">
+              <h3 class="text-xl font-bold text-primary border-b border-primary/20 pb-3 flex items-center gap-3">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
+                  {service.title}
+                </span>
+              </h3>
 
-            <div class="grid gap-8 sm:grid-cols-2">
-                
-                {services.map((service) => (
-                    <div class="p-6 rounded-xl border border-box-border bg-box-bg shadow-xl flex flex-col h-full">
-                        
-                        <h3 class="text-xl font-bold text-primary border-b border-primary/20 pb-3 flex items-center gap-3">
-                            <span          class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"          >
-                            {service.title} 
-                            </span>
-                        </h3>
-                        
-                        <Paragraph className="mt-3 flex-grow text-sm" set:html={service.description} />
+              <Paragraph
+                className="mt-3 flex-grow text-sm"
+                set:html={service.description}
+              />
 
-                        <div class={`mt-4 p-3 border-l-4 ${service.border} bg-box-bg/50`}>
-                            <p class="text-sm font-semibold text-heading-3/80 uppercase">Inversión Única (Base)</p>
-                            <p class="text-2xl font-extrabold mt-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
-                                    A partir de $300 USD
-                                </span>
-                            </p>
-                        </div>
-
-                        <ul class="mt-4 space-y-2 text-heading-3 font-medium text-sm">
-                            {service.features.map((feature) => (
-                                <li>
-                                    <span class={`font-bold bg-box-bg rounded-full w-5 h-5 mr-2 ${service.color} inline-flex justify-center items-center text-xs`}>&checkmark;</span>
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-                </div>
-            
-            <div class="mt-10 p-6 bg-primary/10 rounded-lg border border-primary/50 shadow-xl">
-                <p class="text-lg font-bold text-heading-1 flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-primary"><path d="m15 11-4 4h7l-4 4"/><path d="m9 13 4-4H6l4-4"/></svg>
-                    Recomendación Estratégica: Solución Integrada
+              <div class={`mt-4 p-3 border-l-4 ${service.border} bg-box-bg/50`}>
+                <p class="text-sm font-semibold text-heading-3/80 uppercase">
+                  Inversión Única (Base)
                 </p>
-                <Paragraph className="mt-2 text-base">
-                    La verdadera ventaja de <strong>BIESAL</strong> radica en la <strong>sinergia</strong> de ambos Ejes. La inversión inicial en el ecosistema completo (Web + Sistema) comienza en solo
-                    <strong class="text-2xl font-extrabold">
-                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
-                            $600 USD
-                        </span>
-                    </strong>.
-                </Paragraph>
-                <Paragraph className="mt-4 text-sm italic text-heading-3/80">
-                    Esta base le permite un <strong>Crecimiento Modular</strong> progresivo, expandiendo su plataforma con Inventario, Proformas o Módulos de Clientes, asegurando escalabilidad tecnológica.
-                </Paragraph>
-            </div>
+                <p class="text-2xl font-extrabold mt-1">
+                  <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
+                    A partir de $300 USD
+                  </span>
+                </p>
+              </div>
 
-        </div>
-
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto items-center justify-center">
-            
-            <div class="w-full relative grid gap-6 sm:grid-cols-2 midmd:grid-cols-1 lg:grid-cols-2">
-                
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-
-                <div class="relative group aspect-[9/16] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl">
-                    
-                    <div class="absolute top-0 z-20 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
-                        <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-                        <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-                        <div class="ml-2 text-[10px] text-gray-400 font-mono">sistema-admin.app</div>
-                    </div>
-
-                    <button 
-                        id="open-modal-btn"
-                        class="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 cursor-pointer"
-                        aria-label="Ver imagen completa"
+              <ul class="mt-4 space-y-2 text-heading-3 font-medium text-sm">
+                {service.features.map((feature) => (
+                  <li>
+                    <span
+                      class={`font-bold bg-box-bg rounded-full w-5 h-5 mr-2 ${service.color} inline-flex justify-center items-center text-xs`}
                     >
-                        <span class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black shadow-lg transform scale-95 transition-transform group-hover:scale-100 hover:bg-gray-100">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-6-6"/><path d="M8 7h3v3"/><path d="M7 8v3H4"/><path d="M8 17h3v-3"/><path d="M7 16v-3H4"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
-                            Ver Pantalla Completa
-                        </span>
-                    </button>
-
-                    <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
-                        <img 
-                            src={adminSystemImg} 
-                            alt="Interfaz del Sistema Administrativo" 
-                            class="w-full h-auto object-cover transition-transform duration-[4000ms] ease-linear"
-                            style="transform: translateY(0);"
-                            onmouseover="this.style.transform='translateY(calc(-100% + 250px))'" 
-                            onmouseout="this.style.transform='translateY(0)'"
-                        />
-                    </div>
-                    
-                    <div class="absolute bottom-0 z-20 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10">
-                        <p class="text-sm font-bold text-white">Sistema Administrativo</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-6">
-                    
-                    <div class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl">
-                        <div class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
-                            <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-                            <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-                            <div class="ml-2 text-[10px] text-gray-400 font-mono">davidsalazarservicios.com</div>
-                        </div>
-                        <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
-                            <img 
-                                src={webPageImg1} 
-                                alt="Diseño Web 1" 
-                                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
-                                style="transform: translateY(0);"
-                                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'" 
-                                onmouseout="this.style.transform='translateY(0)'"
-                            />
-                        </div>
-                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10">
-                            <p class="text-sm font-bold text-white">Página Web</p>
-                        </div>
-                    </div>
-
-                    <div class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl">
-                        <div class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
-                            <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-                            <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-                            <div class="ml-2 text-[10px] text-gray-400 font-mono">efratacr.com</div>
-                        </div>
-                        <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
-                            <img 
-                                src={webPageImg2} 
-                                alt="Diseño Web 2" 
-                                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
-                                style="transform: translateY(0);"
-                                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'" 
-                                onmouseout="this.style.transform='translateY(0)'"
-                            />
-                        </div>
-                        <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10">
-                            <p class="text-sm font-bold text-white">Sitio Web</p>
-                        </div>
-                    </div>
-
-                </div> 
+                      &checkmark;
+                    </span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
             </div>
-        </div>
+          ))
+        }
+      </div>
 
-    </Container>
-
-    <div id="image-modal" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity" id="modal-backdrop"></div>
-        
-        <div class="relative flex h-full w-full items-center justify-center p-4 md:p-10">
-            <button id="close-modal-btn" class="absolute right-4 top-4 z-50 rounded-full bg-white/10 p-2 text-white hover:bg-white/20">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-
-            <div class="max-h-full max-w-5xl overflow-y-auto rounded-lg shadow-2xl scrollbar-hide">
-                <img src={adminSystemImg} alt="Full Size Sistema Administrativo" class="w-full h-auto" />
-            </div>
-        </div>
+      <div
+        class="mt-10 p-6 bg-primary/10 rounded-lg border border-primary/50 shadow-xl"
+      >
+        <p class="text-lg font-bold text-heading-1 flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="w-6 h-6 text-primary"
+            ><path d="m15 11-4 4h7l-4 4"></path><path d="m9 13 4-4H6l4-4"
+            ></path></svg
+          >
+          Recomendación Estratégica: Solución Integrada
+        </p>
+        <Paragraph className="mt-2 text-base">
+          La verdadera ventaja de <span
+            class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+            ><strong>BIESAL</strong></span
+          > radica en la <strong>sinergia</strong> de ambos productos. La inversión inicial
+          en el ecosistema completo (Web + Sistema) comienza en solo
+          <strong class="text-2xl font-extrabold">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400"
+            >
+              $600 USD
+            </span>
+          </strong>.
+        </Paragraph>
+        <Paragraph className="mt-4 text-sm italic text-heading-3/80">
+          Esta base le permite un <strong>Crecimiento Modular</strong> progresivo,
+          expandiendo su plataforma con Inventario, Proformas o Módulos de Clientes,
+          asegurando escalabilidad tecnológica.
+        </Paragraph>
+      </div>
     </div>
 
+    <div
+      class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto items-center justify-center"
+    >
+      <div
+        class="w-full relative grid gap-6 sm:grid-cols-2 midmd:grid-cols-1 lg:grid-cols-2"
+      >
+        <div
+          class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"
+        >
+        </div>
+        <div
+          class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"
+        >
+        </div>
+
+        <div
+          class="relative group aspect-[9/16] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl"
+        >
+          <div
+            class="absolute top-0 z-20 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
+          >
+            <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
+            <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
+            <div class="ml-2 text-[10px] text-gray-400 font-mono">
+              sistema-admin.app
+            </div>
+          </div>
+
+          <button
+            id="open-modal-btn"
+            class="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 cursor-pointer"
+            aria-label="Ver imagen completa"
+          >
+            <span
+              class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black shadow-lg transform scale-95 transition-transform group-hover:scale-100 hover:bg-gray-100"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="m21 21-6-6"></path><path d="M8 7h3v3"></path><path
+                  d="M7 8v3H4"></path><path d="M8 17h3v-3"></path><path
+                  d="M7 16v-3H4"></path><circle cx="10" cy="10" r="7"
+                ></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg
+              >
+              Ver Pantalla Completa
+            </span>
+          </button>
+
+          <div
+            class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
+          >
+            <img
+              src={adminSystemImg}
+              alt="Interfaz del Sistema Administrativo"
+              class="w-full h-auto object-cover transition-transform duration-[4000ms] ease-linear"
+              style="transform: translateY(0);"
+              onmouseover="this.style.transform='translateY(calc(-100% + 250px))'"
+              onmouseout="this.style.transform='translateY(0)'"
+            />
+          </div>
+
+          <div
+            class="absolute bottom-0 z-20 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
+          >
+            <p class="text-sm font-bold text-white">Sistema Administrativo</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6">
+          <div
+            class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
+            >
+              <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
+              <div class="ml-2 text-[10px] text-gray-400 font-mono">
+                davidsalazarservicios.com
+              </div>
+            </div>
+            <div
+              class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
+            >
+              <img
+                src={webPageImg1}
+                alt="Diseño Web 1"
+                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
+                style="transform: translateY(0);"
+                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
+                onmouseout="this.style.transform='translateY(0)'"
+              />
+            </div>
+            <div
+              class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
+            >
+              <p class="text-sm font-bold text-white">Página Web</p>
+            </div>
+          </div>
+
+          <div
+            class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div
+              class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
+            >
+              <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
+              <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
+              <div class="ml-2 text-[10px] text-gray-400 font-mono">
+                efratacr.com
+              </div>
+            </div>
+            <div
+              class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
+            >
+              <img
+                src={webPageImg2}
+                alt="Diseño Web 2"
+                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
+                style="transform: translateY(0);"
+                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
+                onmouseout="this.style.transform='translateY(0)'"
+              />
+            </div>
+            <div
+              class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
+            >
+              <p class="text-sm font-bold text-white">Sitio Web</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+
+  <div id="image-modal" class="fixed inset-0 z-[100] hidden">
+    <div
+      class="absolute inset-0 bg-black/90 backdrop-blur-sm transition-opacity"
+      id="modal-backdrop"
+    >
+    </div>
+
+    <div
+      class="relative flex h-full w-full items-center justify-center p-4 md:p-10"
+    >
+      <button
+        id="close-modal-btn"
+        class="absolute right-4 top-4 z-50 rounded-full bg-white/10 p-2 text-white hover:bg-white/20"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><line x1="18" y1="6" x2="6" y2="18"></line><line
+            x1="6"
+            y1="6"
+            x2="18"
+            y2="18"></line></svg
+        >
+      </button>
+
+      <div
+        class="max-h-full max-w-5xl overflow-y-auto rounded-lg shadow-2xl scrollbar-hide"
+      >
+        <img
+          src={adminSystemImg}
+          alt="Full Size Sistema Administrativo"
+          class="w-full h-auto"
+        />
+      </div>
+    </div>
+  </div>
 </section>
 
 <script>
-    const modal = document.getElementById('image-modal');
-    const openBtn = document.getElementById('open-modal-btn');
-    const closeBtn = document.getElementById('close-modal-btn');
-    const backdrop = document.getElementById('modal-backdrop');
+  const modal = document.getElementById("image-modal");
+  const openBtn = document.getElementById("open-modal-btn");
+  const closeBtn = document.getElementById("close-modal-btn");
+  const backdrop = document.getElementById("modal-backdrop");
 
-    function openModal() {
-        if (modal) {
-            modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; 
-        }
+  function openModal() {
+    if (modal) {
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
     }
+  }
 
-    function closeModal() {
-        if (modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = ''; 
-        }
+  function closeModal() {
+    if (modal) {
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
     }
+  }
 
-    if(openBtn) openBtn.addEventListener('click', openModal);
-    if(closeBtn) closeBtn.addEventListener('click', closeModal);
-    if(backdrop) backdrop.addEventListener('click', closeModal);
+  if (openBtn) openBtn.addEventListener("click", openModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (backdrop) backdrop.addEventListener("click", closeModal);
 
-    // Cerrar al presionar la tecla Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
-            closeModal();
-        }
-    });
+  // Cerrar al presionar la tecla Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
 </script>
 
 <style>
-    /* Estilo para ocultar la barra de scroll en el modal sin afectar la funcionalidad */
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
+  /* Estilo para ocultar la barra de scroll en el modal sin afectar la funcionalidad */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 </style>

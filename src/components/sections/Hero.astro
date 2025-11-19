@@ -1,7 +1,6 @@
 ---
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
-// Asegúrate de que los imports no usados estén eliminados en tu código final, como 'Button' o 'ByNumber', si no los utilizas.
 ---
 
 <section class="relative pt-20 lg:pt-24">
@@ -32,14 +31,15 @@ import Paragraph from "../shared/Paragraph.astro";
         >
       </h1>
 
-      {
-        /*<Paragraph className="mt-4"> Impulsamos a las empresas mediante la automatización de procesos administrativos y el 
-                desarrollo de páginas web totalmente integradas con nuestro Sistema Administrativo. 
-                Ayudamos a reducir tareas manuales, mejorar la eficiencia y centralizar la información 
-                en una única plataforma conectada, moderna y segura.
+      <Paragraph className="mt-8">
+                <span
+          class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+          ><strong>BIESAL</strong></span> nace como un catalizador en el mundo digital, entendiendo que posicionar tu marca en la web y contar con herramientas tecnológicas no es un lujo, sino una necesidad imperativa de la era moderna.
             </Paragraph>
- */
-      }
+
+            <Paragraph className="mt-2">
+                Esta visión nos impulsó a crear esta alianza estratégica. Juntos, acumulamos <strong>más de una década de experiencia</strong> en Tecnologías de la Información, fusionando innovación y estrategia para transformar negocios reales.
+            </Paragraph>
     </div>
   </Container>
 </section>
