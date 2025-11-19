@@ -1,0 +1,156 @@
+---
+// WhatsAppButton.astro
+const whatsappNumber = "50600000000"; // UPDATE THIS!
+const defaultMessage = "Hola, me gustaría obtener más información sobre sus servicios"; // Customize this message
+---
+
+<div class="whatsapp-button-wrapper">
+  <a
+    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Contactar por WhatsApp"
+    title="¿Tienes dudas? Escríbenos"
+  >
+    <svg
+      class="whatsapp-icon"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M16 0C7.164 0 0 7.164 0 16c0 2.825.738 5.488 2.026 7.798L.698 29.72l6.133-1.607A15.93 15.93 0 0016 32c8.836 0 16-7.164 16-16S24.836 0 16 0z"
+        fill="#25D366"
+      />
+      <path
+        d="M25.204 22.568c-.35.985-1.739 1.8-2.847 2.042-.75.164-1.729.296-5.023-.996-4.22-1.66-6.95-5.958-7.16-6.232-.21-.274-1.71-2.274-1.71-4.339 0-2.064 1.084-3.078 1.469-3.498.385-.42.84-.525 1.12-.525.28 0 .56.002.805.015.259.013.606-.098.948.722.35.84 1.189 2.904 1.294 3.113.104.21.174.455.035.728-.14.274-.21.445-.42.683-.21.238-.441.532-.63.714-.21.21-.429.437-.184.857.245.42 1.089 1.796 2.338 2.91 1.607 1.435 2.961 1.883 3.381 2.092.42.21.665.175.91-.105.245-.28 1.05-1.225 1.33-1.645.28-.42.56-.35.945-.21.385.14 2.45 1.155 2.87 1.365.42.21.7.315.805.49.105.175.105 1.015-.245 2z"
+        fill="#fff"
+      />
+    </svg>
+    <span class="whatsapp-tooltip">¿Tienes dudas? Escríbenos</span>
+  </a>
+</div>
+
+<style>
+  .whatsapp-button-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+  }
+
+  .whatsapp-float {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+  }
+
+  .whatsapp-float:active {
+    transform: scale(0.95);
+  }
+
+  .whatsapp-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: 70px;
+    background: #fff;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 8px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
+  .whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 6px;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  .whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+  }
+
+  /* Dark mode support */
+  .dark .whatsapp-tooltip {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+
+  .dark .whatsapp-tooltip::after {
+    border-color: transparent transparent transparent #1f2937;
+  }
+
+  /* Pulse animation */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+    }
+    100% {
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+    }
+  }
+
+  .whatsapp-float {
+    animation: pulse 2s infinite;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .whatsapp-button-wrapper {
+      bottom: 15px;
+      right: 15px;
+    }
+
+    .whatsapp-float {
+      width: 56px;
+      height: 56px;
+    }
+
+    .whatsapp-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .whatsapp-tooltip {
+      display: none; /* Hide tooltip on mobile */
+    }
+  }
+</style>

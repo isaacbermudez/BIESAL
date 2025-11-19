@@ -10,17 +10,29 @@ import Container from "../shared/Container.astro";
     >
       <div class="absolute right-0 top-0 h-full w-full flex justify-end">
         <div class="w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl">
-            <span class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
-            <span class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-            <span class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
+          <span
+            class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"
+          ></span>
+          <span
+            class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"
+          ></span>
+          <span
+            class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"
+          ></span>
         </div>
       </div>
 
       <div class="absolute left-0 bottom-0 h-full w-full flex items-end">
         <div class="w-28 h-28 overflow-auto flex rounded-xl relative blur-2xl">
-            <span class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"></span>
-            <span class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"></span>
-            <span class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"></span>
+          <span
+            class="absolute w-16 h-16 -top-1 -right-1 bg-green-500 rounded-md rotate-45"
+          ></span>
+          <span
+            class="absolute w-16 h-16 -bottom-1 -right-1 bg-[#FCDC58] rounded-md rotate-45"
+          ></span>
+          <span
+            class="absolute w-16 h-16 -bottom-1 -left-1 bg-primary rounded-md rotate-45"
+          ></span>
         </div>
       </div>
 
@@ -29,35 +41,86 @@ import Container from "../shared/Container.astro";
           class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
           font-bold text-heading-1"
         >
-          Contáctenos hoy para dar el primer paso hacia una <span class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600">presencia digital</span> destacada. ¡Estamos listos para empezar su proyecto!
+          Contáctenos hoy para dar el primer paso hacia una <span
+            class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+            >presencia digital</span
+          > destacada. ¡Estamos listos para empezar su proyecto!
         </h1>
 
-        <div class="mx-auto max-w-md sm:max-w-xl pt-10 flex flex-wrap justify-center gap-4"> 
-          
-          <a href="https://wa.me/50600000000" target="_blank" rel="noopener noreferrer">
-            <Button variant={"primary"}>
-              <span class="text-white relative z-[5]">
-                WhatsApp
-              </span>
+        <div
+          class="mx-auto max-w-md sm:max-w-xl pt-10 flex flex-wrap justify-center gap-4"
+        >
+          <!-- WhatsApp Button -->
+          <a
+            href="https://wa.me/50600000000"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="primary"
+              class="relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium"
+            >
+              <span class="relative z-10 text-white">Escríbenos</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="WhatsApp"
+                role="img"
+                viewBox="0 0 48 48"
+                class="h-11 w-11 shrink-0"
+                pointer-events-none
+              >
+                <path
+                  fill="#25D366"
+                  d="M24 1.8C11.8 1.8 1.8 11.8 1.8 24c0 4.4 1.2 8.6 3.3 12.2L1.8 44l8.1-2.3c3.5 2 7.5 3.1 11.7 3.1 12.2 0 22.2-10 22.2-22.2S36.2 1.8 24 1.8z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M17.5 14.5c-.4-1-1.2-1-1.6-1-.4 0-.8 0-1.2 0-.4 0-1 .2-1.5.8-.6.7-2 2-2 4.8 0 2.8 2 5.5 2.3 5.9.3.4 4 6.2 9.7 8.7 5.7 2.5 5.7.2 6.4.2.7 0 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.1-.2-.5-.3-1-.5-.5-.2-3.2-1.6-3.7-1.8-.5-.2-.9-.2-1.2.2-.4.4-1.4 1.8-1.7 2.2-.3.4-.7.4-1.2.1-.5-.3-2.3-.9-4.3-2.7-2-1.9-3.4-4.2-3.8-4.9-.4-.7 0-1 .3-1.3.3-.3.7-.7 1-1 .3-.3.4-.7.5-1.1.2-.4.1-.8-.1-.9-.2-.2-.9-.9-1.2-1.3z"
+                ></path>
+              </svg>
             </Button>
           </a>
-          
-          <a 
+
+          <!-- Google Meet Button -->
+          <a
             id="cal-button-reunion"
-            href="#" 
-            data-cal-link="isaac-bermudez-f04bo3/cotizacion" 
+            href="#"
+            data-cal-link="isaac-bermudez-f04bo3/cotizacion"
             data-cal-namespace="cotizacion"
             rel="noopener noreferrer"
-          > 
-            <Button variant={"primary"}>
-              <span class="text-white relative z-[5]">
-                Reunión
-              </span>
+          >
+            <Button
+              variant="primary"
+              class="relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium"
+            >
+              <span class="relative z-10 text-white">Sesión virtual</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                aria-label="Google Meet"
+                role="img"
+                viewBox="0 0 512 512"
+                class="h-11 w-11 shrink-0"
+                pointer-events-none
+              >
+                <rect width="512" height="512" rx="15%" fill="#ffffff"></rect>
+                <path d="M166 106v90h-90" fill="#ea4335"></path>
+                <path d="M166 106v90h120v62l90-73v-49q0-30-30-30" fill="#ffba00"
+                ></path>
+                <path
+                  d="M164 406v-90h122v-60l90 71v49q0 30-30 30"
+                  fill="#00ac47"></path>
+                <path d="M286 256l90-73v146" fill="#00832d"></path>
+                <path
+                  d="M376 183l42-34c9-7 18-7 18 7v200c0 14-9 14-18 7l-42-34"
+                  fill="#00ac47"></path>
+                <path d="M76 314v62q0 30 30 30h60v-92" fill="#0066da"></path>
+                <path d="M76 196h90v120h-90" fill="#2684fc"></path>
+              </svg>
             </Button>
           </a>
-          
         </div>
-
       </div>
     </div>
   </Container>
@@ -68,42 +131,74 @@ import Container from "../shared/Container.astro";
   function initializeCalCom() {
     // 2. Obtener el tema de localStorage. Si no está definido o es inválido, usa 'light' como fallback.
     const storedTheme = localStorage.getItem("appTheme");
-    const theme = (storedTheme === "light" || storedTheme === "dark") ? storedTheme : 'light';
-    
+    const theme =
+      storedTheme === "light" || storedTheme === "dark" ? storedTheme : "light";
+
     // 3. Definir la configuración JSON que Cal.com necesita (incluyendo el tema dinámico)
     const calConfig = JSON.stringify({
-        "layout": "month_view",
-        "theme": theme // <-- Tema dinámico
+      layout: "month_view",
+      theme: theme, // <-- Tema dinámico
     });
 
     // 4. Aplicar la configuración al elemento del botón
-    const calButton = document.getElementById('cal-button-reunion');
+    const calButton = document.getElementById("cal-button-reunion");
     if (calButton) {
-        calButton.setAttribute('data-cal-config', calConfig);
+      calButton.setAttribute("data-cal-config", calConfig);
     }
 
     // 5. Inicialización base del Embed de Cal.com (el código ofuscado)
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    
+    (function (C, A, L) {
+      let p = function (a, ar) {
+        a.q.push(ar);
+      };
+      let d = C.document;
+      C.Cal =
+        C.Cal ||
+        function () {
+          let cal = C.Cal;
+          let ar = arguments;
+          if (!cal.loaded) {
+            cal.ns = {};
+            cal.q = cal.q || [];
+            d.head.appendChild(d.createElement("script")).src = A;
+            cal.loaded = true;
+          }
+          if (ar[0] === L) {
+            const api = function () {
+              p(api, arguments);
+            };
+            const namespace = ar[1];
+            api.q = api.q || [];
+            if (typeof namespace === "string") {
+              cal.ns[namespace] = cal.ns[namespace] || api;
+              p(cal.ns[namespace], ar);
+              p(cal, ["initNamespace", namespace]);
+            } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
     // 6. Configurar el namespace y la UI (estos deben ser llamados después de que Cal() se haya cargado)
-    Cal("init", "cotizacion", {origin:"https://app.cal.com"});
-    
+    Cal("init", "cotizacion", { origin: "https://app.cal.com" });
+
     // La configuración de la UI de Cal.com requiere el tema de nuevo, y aplica estilos.
     // Esto asegura que Cal.com use tu CSS variable de marca en modo light.
     Cal.ns.cotizacion("ui", {
-        "theme": theme, // <-- Tema dinámico para la UI
-        "cssVarsPerTheme": {"light": {"cal-brand": "#030712"}},
-        "hideEventTypeDetails": false,
-        "layout": "month_view"
+      theme: theme, // <-- Tema dinámico para la UI
+      cssVarsPerTheme: { light: { "cal-brand": "#030712" } },
+      hideEventTypeDetails: false,
+      layout: "month_view",
     });
-    
+
     // 7. Carga final del script si no existía (redundancia de seguridad)
     if (!window.Cal || !window.Cal.loaded) {
-        const script = document.createElement("script");
-        script.src = "https://app.cal.com/embed/embed.js";
-        document.head.appendChild(script);
-        window.Cal = window.Cal || {};
-        window.Cal.loaded = true;
+      const script = document.createElement("script");
+      script.src = "https://app.cal.com/embed/embed.js";
+      document.head.appendChild(script);
+      window.Cal = window.Cal || {};
+      window.Cal.loaded = true;
     }
   }
 

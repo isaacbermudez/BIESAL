@@ -3,39 +3,52 @@ import Info from "../cards/Info.astro";
 import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
+
+// 1. Imágenes de perfil
+const ownerImg1 = "/images/owner1.jpeg"; 
+const ownerImg2 = "/images/owner2.jpeg"; 
+const ownerImg3 = "/images/owner3.jpeg"; 
+
+// 2. Datos del Equipo (Nombres, Roles y LinkedIn)
+const team = [
+  {
+    name: "Isaac Bermúdez",
+    role: "Cofundador & Director General",
+    img: ownerImg1,
+    linkedin: "https://www.linkedin.com/in/isaac-bermudez-59291b111", // <-- Poner link real aquí
+  },
+  {
+    name: "Emanuel Bermúdez",
+    role: "Cofundador & Director Operativo",
+    img: ownerImg2,
+    linkedin: "https://www.linkedin.com/in/emanuel-bermudez-salguera-36a345191", // <-- Poner link real aquí
+  },
+  {
+    name: "Abiel Bermúdez",
+    role: "Cofundador & Director Tecnológico",
+    img: ownerImg3,
+    linkedin: "https://www.linkedin.com/in/abiel-bermudez-154843264", // <-- Poner link real aquí
+  },
+];
 ---
 
 <section id="about-us">
     <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
-        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto">
-            <div class="w-full h-80 sm:h-96 midmd:h-full relative">
-                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
-                <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
-                <span class="absolute w-full aspect-[16/5] -skew-x-12 rounded-full bg-gradient-to-tr from-primary to-green-400 opacity-40 blur-2xl left-0 bottom-0"></span>
-
-                <img
-                    src={"/images/dev-with-c-1.webp"}
-                    alt="Imagen corporativa"
-                    width="1240"
-                    height="1385"
-                    class="w-auto left-1/2 -translate-x-1/2 absolute bottom-0 max-h-full"
-                />
-            </div>
-        </div>
-
-        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
+        
+        <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col justify-center">
             <Title>
-                Impulsamos el crecimiento de tu empresa con soluciones más rápidas y eficientes
+                Más que tecnología, somos el catalizador que transforma tu necesidad digital en ventaja competitiva
             </Title>
 
             <Paragraph className="mt-8">
-                Somos una empresa enfocada en crear soluciones tecnológicas que optimizan procesos,
-                aumentan la productividad y aceleran los resultados. Acompañamos a nuestros clientes 
-                desde la estrategia hasta la ejecución, integrando innovación, calidad y un profundo
-                entendimiento de sus necesidades reales.
+                <strong>BIESAL</strong> nace como un catalizador en el mundo digital, entendiendo que posicionar tu marca en la web y contar con herramientas tecnológicas no es un lujo, sino una necesidad imperativa de la era moderna.
             </Paragraph>
 
-            <div class="pt-8 grid grid-cols-2 items-center gap-4 max-w-3xl md:max-w-[none]">
+            <Paragraph className="mt-2">
+                Esta visión nos impulsó a crear esta alianza estratégica. Juntos, acumulamos <strong>más de una década de experiencia</strong> en Tecnologías de la Información, fusionando innovación y estrategia para transformar negocios reales.
+            </Paragraph>
+
+            <div class="pt-8 grid grid-cols-1 sm:grid-cols-2 items-start gap-4 max-w-3xl md:max-w-[none]">
                 <Info
                     title="Misión"
                     description="Brindar soluciones tecnológicas inteligentes y accesibles que ayuden a las empresas a crecer, transformarse y alcanzar sus objetivos con mayor eficiencia."
@@ -60,5 +73,52 @@ import Title from "../shared/Title.astro";
                 </Info>
             </div>
         </div>
+        <div class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto items-center">
+            <div class="w-full relative">
+                
+                <div class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"></div>
+                <div class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"></div>
+                
+                <div class="flex flex-col gap-5 relative z-10">
+                    {team.map((member) => (
+                        <div class="group flex items-center justify-between p-4 rounded-2xl bg-box-bg border border-box-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+                                    <img 
+                                        src={member.img} 
+                                        alt={member.name} 
+                                        class="w-full h-full rounded-full object-cover border-2 border-primary/20 group-hover:border-primary transition-colors"
+                                    />
+                                </div>
+                                <div class="flex flex-col">
+                                    <h3 class="text-lg font-bold text-heading-1 leading-tight">
+                                        {member.name}
+                                    </h3>
+                                    <span class="text-sm text-primary font-medium mt-1">
+                                        {member.role}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <a 
+                                href={member.linkedin} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="p-2 rounded-full bg-gray-100 text-gray-600 hover:bg-[#0077b5] hover:text-white transition-colors duration-300"
+                                aria-label={`LinkedIn de ${member.name}`}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </div>
+
     </Container>
 </section>

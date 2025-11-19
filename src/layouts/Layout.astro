@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/elements/Footer.astro";
 import Navbar from "../components/elements/Navbar.astro";
+import WhatsAppButton from "../components/elements/WhatsAppButton.astro";
 
 export interface Props {
   title: string;
@@ -36,6 +37,9 @@ const { title } = Astro.props;
       <slot />
       <Footer />
     </div>
+
+    <!-- WhatsApp Button -->
+    <WhatsAppButton />
   </body>
 
   <!-- Load Finisher Header Script -->
