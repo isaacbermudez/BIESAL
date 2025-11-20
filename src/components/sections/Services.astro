@@ -3,6 +3,7 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 import Title from "../shared/Title.astro";
 import { services } from "../../utils/data";
+import Button from "../shared/Button.astro";
 
 // Define your image paths here
 const adminSystemImg = "/images/screenshot-sistema.png";
@@ -27,7 +28,7 @@ const webPageImg2 = "/images/screenshot-web2.png";
       <div class="grid gap-8 sm:grid-cols-2">
         {
           services.map((service) => (
-            <div class="p-6 rounded-xl border border-box-border bg-box-bg shadow-xl flex flex-col h-full">
+            <div class="p-6 rounded-xl border border-box-border bg-box-bg shadow-xl flex flex-col h-full justify-center items-center">
               <h3 class="text-xl font-bold text-primary border-b border-primary/20 pb-3 flex items-center gap-3">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
                   {service.title}
@@ -41,7 +42,7 @@ const webPageImg2 = "/images/screenshot-web2.png";
 
               <div class={`mt-4 p-3 border-l-4 ${service.border} bg-box-bg/50`}>
                 <p class="text-sm font-semibold text-heading-3/80 uppercase">
-                  Inversión Única (Base)
+                  Inversión Base
                 </p>
                 <p class="text-2xl font-extrabold mt-1">
                   <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
@@ -49,6 +50,132 @@ const webPageImg2 = "/images/screenshot-web2.png";
                   </span>
                 </p>
               </div>
+
+              {/* START: CONDITIONAL PLACEHOLDER CONTENT */}
+              {service.title === "SISTEMA ADMINISTRATIVO" && (
+                <div class="relative group aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl">
+                  <div class="absolute top-0 z-20 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
+                    <div class="h-2.5 w-2.5 rounded-full bg-red-500" />
+                    <div class="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                    <div class="h-2.5 w-2.5 rounded-full bg-green-500" />
+                    <div class="ml-2 text-[10px] text-gray-400 font-mono">
+                      sistema-admin.app
+                    </div>
+                  </div>
+
+                  <button
+                    id="open-modal-btn"
+                    class="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 cursor-pointer"
+                    aria-label="Ver imagen completa"
+                  >
+                    <span class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black shadow-lg transform scale-95 transition-transform group-hover:scale-100 hover:bg-gray-100 pointer-events-none">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="pointer-events-none"
+                      >
+                        <path d="m21 21-6-6" class="pointer-events-none" />
+                        <path d="M8 7h3v3" class="pointer-events-none" />
+                        <path d="M7 8v3H4" class="pointer-events-none" />
+                        <path d="M8 17h3v-3" class="pointer-events-none" />
+                        <path d="M7 16v-3H4" class="pointer-events-none" />
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="7"
+                          class="pointer-events-none"
+                        />
+                        <line
+                          x1="21"
+                          y1="21"
+                          x2="15"
+                          y2="15"
+                          class="pointer-events-none"
+                        />
+                      </svg>
+                      Ver Pantalla Completa
+                    </span>
+                  </button>
+
+                  <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
+                    <img
+                      src={adminSystemImg}
+                      alt="Interfaz del Sistema Administrativo"
+                      class="w-full h-full object-contain object-top transition-transform duration-[4000ms] ease-linear"
+                      style="transform: translateY(0);"
+                      onmouseover="this.style.transform='translateY(calc(-100% + 100%))'"
+                      onmouseout="this.style.transform='translateY(0)'"
+                    />
+                  </div>
+
+                  <div class="absolute bottom-0 z-20 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10 pointer-events-none">
+                    <p class="text-sm font-bold text-white">
+                      Sistema Administrativo
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {service.title === "PÁGINA WEB" && (
+                <div class="relative group aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl">
+                  <div class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl">
+                    <div class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
+                      <div class="h-2.5 w-2.5 rounded-full bg-red-500" />
+                      <div class="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                      <div class="h-2.5 w-2.5 rounded-full bg-green-500" />
+                      <div class="ml-2 text-[10px] text-gray-400 font-mono">
+                        davidsalazarservicios.com
+                      </div>
+                    </div>
+                    <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
+                      <img
+                        src={webPageImg1}
+                        alt="Diseño Web 1"
+                        class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
+                        style="transform: translateY(0);"
+                        onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
+                        onmouseout="this.style.transform='translateY(0)'"
+                      />
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10">
+                      <p class="text-sm font-bold text-white">Página Web</p>
+                    </div>
+                  </div>
+
+                  <div class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl">
+                    <div class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
+                      <div class="h-2.5 w-2.5 rounded-full bg-red-500" />
+                      <div class="h-2.5 w-2.5 rounded-full bg-yellow-500" />
+                      <div class="h-2.5 w-2.5 rounded-full bg-green-500" />
+                      <div class="ml-2 text-[10px] text-gray-400 font-mono">
+                        efratacr.com
+                      </div>
+                    </div>
+                    <div class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100">
+                      <img
+                        src={webPageImg2}
+                        alt="Diseño Web 2"
+                        class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
+                        style="transform: translateY(0);"
+                        onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
+                        onmouseout="this.style.transform='translateY(0)'"
+                      />
+                    </div>
+                    <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10">
+                      <p class="text-sm font-bold text-white">Sitio Web</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* END: CONDITIONAL PLACEHOLDER CONTENT */}
 
               <ul class="mt-4 space-y-2 text-heading-3 font-medium text-sm">
                 {service.features.map((feature) => (
@@ -62,6 +189,42 @@ const webPageImg2 = "/images/screenshot-web2.png";
                   </li>
                 ))}
               </ul>
+
+              <a
+                href={`https://wa.me/50662530936?text=${encodeURIComponent("Hola, me gustaría tener más información sobre el producto " + service.title + ".")}`}
+                target="_blank"
+                rel="noopener
+          noreferrer"
+                class="block"
+              >
+                <Button
+                  variant="primary"
+                  class="relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium pointer-events-none"
+                >
+                  <span class="relative z-10 text-white pointer-events-none">
+                    Solicítalo
+                  </span>
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-label="WhatsApp"
+                    role="img"
+                    viewBox="0 0 48 48"
+                    class="h-11 w-11 shrink-0 pointer-events-none"
+                  >
+                    <path
+                      fill="#25D366"
+                      d="M24 1.8C11.8 1.8 1.8 11.8 1.8 24c0 4.4 1.2 8.6 3.3 12.2L1.8 44l8.1-2.3c3.5 2 7.5 3.1 11.7 3.1 12.2 0 22.2-10 22.2-22.2S36.2 1.8 24 1.8z"
+                      class="pointer-events-none"
+                    />
+                    <path
+                      fill="#fff"
+                      d="M17.5 14.5c-.4-1-1.2-1-1.6-1-.4 0-.8 0-1.2 0-.4 0-1 .2-1.5.8-.6.7-2 2-2 4.8 0 2.8 2 5.5 2.3 5.9.3.4 4 6.2 9.7 8.7 5.7 2.5 5.7.2 6.4.2.7 0 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.1-.2-.5-.3-1-.5-.5-.2-3.2-1.6-3.7-1.8-.5-.2-.9-.2-1.2.2-.4.4-1.4 1.8-1.7 2.2-.3.4-.7.4-1.2.1-.5-.3-2.3-.9-4.3-2.7-2-1.9-3.4-4.2-3.8-4.9-.4-.7 0-1 .3-1.3.3-.3.7-.7 1-1 .3-.3.4-.7.5-1.1.2-.4.1-.8-.1-.9-.2-.2-.9-.9-1.2-1.3z"
+                      class="pointer-events-none"
+                    />
+                  </svg>
+                </Button>
+              </a>
             </div>
           ))
         }
@@ -91,8 +254,8 @@ const webPageImg2 = "/images/screenshot-web2.png";
           La verdadera ventaja de <span
             class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
             ><strong>BIESAL</strong></span
-          > radica en la <strong>sinergia</strong> de ambos productos. La inversión inicial
-          en el ecosistema completo (Web + Sistema) comienza en solo
+          > radica en la <strong>sinergia</strong> de ambos productos. La inversión
+          inicial en el ecosistema completo (Web + Sistema) comienza en solo
           <strong class="text-2xl font-extrabold">
             <span
               class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400"
@@ -106,150 +269,6 @@ const webPageImg2 = "/images/screenshot-web2.png";
           expandiendo su plataforma con Inventario, Proformas o Módulos de Clientes,
           asegurando escalabilidad tecnológica.
         </Paragraph>
-      </div>
-    </div>
-
-    <div
-      class="max-w-md mx-auto midmd:max-w-none lg:mx-0 lg:pr-10 xl:pr-2 flex-1 flex w-11/12 midmd:w-5/12 lg:w-1/2 midmd:h-auto items-center justify-center"
-    >
-      <div
-        class="w-full relative grid gap-6 sm:grid-cols-2 midmd:grid-cols-1 lg:grid-cols-2"
-      >
-        <div
-          class="absolute rotate-45 -left-5 md:-left-10 lg:-left-20 xl:-left-24 p-1 top-1/2 w-16 h-16 bg-gradient-to-br from-primary to-orange-400 blur-3xl opacity-50"
-        >
-        </div>
-        <div
-          class="absolute p-1 -top-4 md:-top-10 right-0 w-20 h-20 bg-gradient-to-br from-primary to-orange-400 rounded-full blur-3xl opacity-60"
-        >
-        </div>
-
-        <div
-          class="relative group aspect-[9/16] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl"
-        >
-          <div
-            class="absolute top-0 z-20 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
-          >
-            <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-            <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-            <div class="ml-2 text-[10px] text-gray-400 font-mono">
-              sistema-admin.app
-            </div>
-          </div>
-
-          <button
-            id="open-modal-btn"
-            class="absolute inset-0 z-30 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100 cursor-pointer"
-            aria-label="Ver imagen completa"
-          >
-            <span
-              class="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-black shadow-lg transform scale-95 transition-transform group-hover:scale-100 hover:bg-gray-100"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                ><path d="m21 21-6-6"></path><path d="M8 7h3v3"></path><path
-                  d="M7 8v3H4"></path><path d="M8 17h3v-3"></path><path
-                  d="M7 16v-3H4"></path><circle cx="10" cy="10" r="7"
-                ></circle><line x1="21" y1="21" x2="15" y2="15"></line></svg
-              >
-              Ver Pantalla Completa
-            </span>
-          </button>
-
-          <div
-            class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
-          >
-            <img
-              src={adminSystemImg}
-              alt="Interfaz del Sistema Administrativo"
-              class="w-full h-auto object-cover transition-transform duration-[4000ms] ease-linear"
-              style="transform: translateY(0);"
-              onmouseover="this.style.transform='translateY(calc(-100% + 250px))'"
-              onmouseout="this.style.transform='translateY(0)'"
-            />
-          </div>
-
-          <div
-            class="absolute bottom-0 z-20 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
-          >
-            <p class="text-sm font-bold text-white">Sistema Administrativo</p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-6">
-          <div
-            class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <div
-              class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
-            >
-              <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-              <div class="ml-2 text-[10px] text-gray-400 font-mono">
-                davidsalazarservicios.com
-              </div>
-            </div>
-            <div
-              class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
-            >
-              <img
-                src={webPageImg1}
-                alt="Diseño Web 1"
-                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
-                style="transform: translateY(0);"
-                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
-                onmouseout="this.style.transform='translateY(0)'"
-              />
-            </div>
-            <div
-              class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
-            >
-              <p class="text-sm font-bold text-white">Página Web</p>
-            </div>
-          </div>
-
-          <div
-            class="group relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <div
-              class="absolute top-0 z-10 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur"
-            >
-              <div class="h-2.5 w-2.5 rounded-full bg-red-500"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-yellow-500"></div>
-              <div class="h-2.5 w-2.5 rounded-full bg-green-500"></div>
-              <div class="ml-2 text-[10px] text-gray-400 font-mono">
-                efratacr.com
-              </div>
-            </div>
-            <div
-              class="absolute top-10 bottom-0 w-full overflow-hidden bg-gray-100"
-            >
-              <img
-                src={webPageImg2}
-                alt="Diseño Web 2"
-                class="w-full h-auto object-cover transition-transform duration-[6000ms] ease-linear"
-                style="transform: translateY(0);"
-                onmouseover="this.style.transform='translateY(calc(-100% + 180px))'"
-                onmouseout="this.style.transform='translateY(0)'"
-              />
-            </div>
-            <div
-              class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-10"
-            >
-              <p class="text-sm font-bold text-white">Sitio Web</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </Container>

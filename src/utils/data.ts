@@ -14,7 +14,7 @@ const services = [
     border: 'border-primary',
     features: [
         "Optimiza la toma de decisiones.",
-        "Módulos escalables (Inventario, Clientes, Reportes).",
+        "Módulos escalables (Inventario, Clientes, Reportes, etc).",
         "Incluye Módulo de Solicitudes.",
     ]
   },
