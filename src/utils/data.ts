@@ -1,4 +1,4 @@
-// src/data.ts
+// src/utils/data.ts
 
 const services = [
   {
