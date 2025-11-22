@@ -1,6 +1,7 @@
 ---
 import Button from "../shared/Button.astro";
 import Container from "../shared/Container.astro";
+import ContactButton from "../shared/ContactButton.astro";
 ---
 
 <section id="cta" class="pb-20">
@@ -41,8 +42,8 @@ import Container from "../shared/Container.astro";
           class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
           font-bold text-heading-1"
         >
-          Contáctenos hoy para dar el primer paso hacia una  <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400"
+          Contáctenos hoy para dar el primer paso hacia una <span
+            class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400"
             >presencia digital</span
           > destacada. ¡Estamos listos para empezar su proyecto!
         </h1>
@@ -57,31 +58,7 @@ import Container from "../shared/Container.astro";
           noreferrer"
             class="block"
           >
-            <Button
-              variant="primary"
-              class="relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium pointer-events-none"
-            >
-              <span class="relative z-10 text-white pointer-events-none"
-                >Contáctenos</span
-              >
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                aria-label="WhatsApp"
-                role="img"
-                viewBox="0 0 48 48"
-                class="h-11 w-11 shrink-0 pointer-events-none"
-              >
-                <path
-                  fill="#25D366"
-                  d="M24 1.8C11.8 1.8 1.8 11.8 1.8 24c0 4.4 1.2 8.6 3.3 12.2L1.8 44l8.1-2.3c3.5 2 7.5 3.1 11.7 3.1 12.2 0 22.2-10 22.2-22.2S36.2 1.8 24 1.8z"
-                  class="pointer-events-none"></path>
-                <path
-                  fill="#fff"
-                  d="M17.5 14.5c-.4-1-1.2-1-1.6-1-.4 0-.8 0-1.2 0-.4 0-1 .2-1.5.8-.6.7-2 2-2 4.8 0 2.8 2 5.5 2.3 5.9.3.4 4 6.2 9.7 8.7 5.7 2.5 5.7.2 6.4.2.7 0 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.1-.2-.5-.3-1-.5-.5-.2-3.2-1.6-3.7-1.8-.5-.2-.9-.2-1.2.2-.4.4-1.4 1.8-1.7 2.2-.3.4-.7.4-1.2.1-.5-.3-2.3-.9-4.3-2.7-2-1.9-3.4-4.2-3.8-4.9-.4-.7 0-1 .3-1.3.3-.3.7-.7 1-1 .3-.3.4-.7.5-1.1.2-.4.1-.8-.1-.9-.2-.2-.9-.9-1.2-1.3z"
-                  class="pointer-events-none"></path>
-              </svg>
-            </Button>
+            <ContactButton text="Solicítalo" icon="whatsapp" />
           </a>
 
           <!-- Google Meet Button -->
@@ -93,57 +70,8 @@ import Container from "../shared/Container.astro";
             rel="noopener noreferrer"
             class="block"
           >
-            <Button
-              variant="primary"
-              class="relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium pointer-events-none"
-            >
-              <span class="relative z-10 text-white pointer-events-none"
-                >Sesión virtual</span
-              >
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                aria-label="Google Meet"
-                role="img"
-                viewBox="0 0 512 512"
-                class="h-11 w-11 shrink-0 pointer-events-none"
-              >
-                <rect
-                  width="512"
-                  height="512"
-                  rx="15%"
-                  fill="#ffffff"
-                  class="pointer-events-none"></rect>
-                <path
-                  d="M166 106v90h-90"
-                  fill="#ea4335"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M166 106v90h120v62l90-73v-49q0-30-30-30"
-                  fill="#ffba00"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M164 406v-90h122v-60l90 71v49q0 30-30 30"
-                  fill="#00ac47"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M286 256l90-73v146"
-                  fill="#00832d"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M376 183l42-34c9-7 18-7 18 7v200c0 14-9 14-18 7l-42-34"
-                  fill="#00ac47"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M76 314v62q0 30 30 30h60v-92"
-                  fill="#0066da"
-                  class="pointer-events-none"></path>
-                <path
-                  d="M76 196h90v120h-90"
-                  fill="#2684fc"
-                  class="pointer-events-none"></path>
-              </svg>
-            </Button>
+            <!-- Google Meet button -->
+            <ContactButton text="Sesión virtual" icon="google-meet" />
           </a>
         </div>
       </div>

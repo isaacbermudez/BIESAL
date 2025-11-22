@@ -1,0 +1,92 @@
+---
+interface Props {
+  text: string;
+  icon: "whatsapp" | "google-meet";
+  class?: string;
+}
+
+const { text, icon, class: className = "" } = Astro.props;
+
+const icons = {
+  whatsapp: {
+    viewBox: "0 0 48 48",
+    label: "WhatsApp",
+    paths: [
+      {
+        fill: "#25D366",
+        d: "M24 1.8C11.8 1.8 1.8 11.8 1.8 24c0 4.4 1.2 8.6 3.3 12.2L1.8 44l8.1-2.3c3.5 2 7.5 3.1 11.7 3.1 12.2 0 22.2-10 22.2-22.2S36.2 1.8 24 1.8z",
+      },
+      {
+        fill: "#fff",
+        d: "M17.5 14.5c-.4-1-1.2-1-1.6-1-.4 0-.8 0-1.2 0-.4 0-1 .2-1.5.8-.6.7-2 2-2 4.8 0 2.8 2 5.5 2.3 5.9.3.4 4 6.2 9.7 8.7 5.7 2.5 5.7.2 6.4.2.7 0 2.8-1.1 3.2-2.2.4-1.1.4-2 .3-2.2-.1-.2-.5-.3-1-.5-.5-.2-3.2-1.6-3.7-1.8-.5-.2-.9-.2-1.2.2-.4.4-1.4 1.8-1.7 2.2-.3.4-.7.4-1.2.1-.5-.3-2.3-.9-4.3-2.7-2-1.9-3.4-4.2-3.8-4.9-.4-.7 0-1 .3-1.3.3-.3.7-.7 1-1 .3-.3.4-.7.5-1.1.2-.4.1-.8-.1-.9-.2-.2-.9-.9-1.2-1.3z",
+      },
+    ],
+  },
+  "google-meet": {
+    viewBox: "0 0 512 512",
+    label: "Google Meet",
+    paths: [
+      {
+        fill: "#ffffff",
+        d: "M0 76.8C0 34.4 34.4 0 76.8 0h358.4C477.6 0 512 34.4 512 76.8v358.4c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 512 0 477.6 0 435.2V76.8z",
+      },
+      {
+        fill: "#ea4335",
+        d: "M166 106v90h-90",
+      },
+      {
+        fill: "#ffba00",
+        d: "M166 106v90h120v62l90-73v-49q0-30-30-30",
+      },
+      {
+        fill: "#00ac47",
+        d: "M164 406v-90h122v-60l90 71v49q0 30-30 30",
+      },
+      {
+        fill: "#00832d",
+        d: "M286 256l90-73v146",
+      },
+      {
+        fill: "#00ac47",
+        d: "M376 183l42-34c9-7 18-7 18 7v200c0 14-9 14-18 7l-42-34",
+      },
+      {
+        fill: "#0066da",
+        d: "M76 314v62q0 30 30 30h60v-92",
+      },
+      {
+        fill: "#2684fc",
+        d: "M76 196h90v120h-90",
+      },
+    ],
+  },
+};
+
+const selectedIcon = icons[icon];
+---
+
+<button
+  class={`group relative inline-flex items-center justify-center gap-3 px-7 py-4 text-lg font-medium bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:scale-105 active:scale-95 ${className}`}
+>
+  <span class="relative z-10 font-semibold">
+    {text}
+  </span>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label={selectedIcon.label}
+    role="img"
+    viewBox={selectedIcon.viewBox}
+    class="h-8 w-8 shrink-0 transition-transform duration-300 group-hover:rotate-12"
+  >
+    {selectedIcon.paths.map((path) => <path fill={path.fill} d={path.d} />)}
+  </svg>
+
+  <!-- Shine effect -->
+  <div class="absolute inset-0 rounded-xl overflow-hidden">
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
+    >
+    </div>
+  </div>
+</button>
