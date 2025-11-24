@@ -41,8 +41,8 @@ const faqs = [
   {
     question: "¿Cuál es el costo total de la inversión inicial y qué incluye?",
     answer: `La <strong>Inversión Base</strong> para el Ecosistema Digital Integrado es de <strong>$600 USD</strong> (cubriendo ambos productos). Sin embargo, usted puede optar por la inversión de cada producto de forma separada:<br><br>
-            ➡️ <strong>Sistema Administrativo Centralizado:</strong> <strong>$300 USD</strong>.<br>
-            ➡️ <strong>Desarrollo de la Página Web:</strong> <strong>$300 USD</strong>.<br><br>
+            - <strong>Sistema Administrativo Centralizado:</strong> <strong>$300 USD</strong>.<br>
+            - <strong>Desarrollo de la Página Web:</strong> <strong>$300 USD</strong>.<br><br>
             El monto total incluye el desarrollo, la configuración inicial y las pruebas funcionales del o los productos seleccionados.`,
   },
   {
@@ -56,8 +56,8 @@ const faqs = [
             
             <strong>OPCIÓN 1: Control Total (Autogestión)</strong><br>
             Usted contrata directamente su Hosting y Dominio. Los costos de referencia son:<br>
-            ➡️ <strong>Alojamiento Web (Hosting):</strong> <strong>$17 USD/mes (aprox.)</strong>. Esto garantiza que su sitio esté operativo 24/7, con respaldos automáticos y seguridad avanzada.<br>
-            ➡️ <strong>Dominio Web:</strong> <strong>$17 USD/año (aprox.)</strong>. Mantiene la propiedad de su dirección web e incluye el certificado SSL de seguridad.<br><br>
+            - <strong>Alojamiento Web (Hosting):</strong> <strong>$17 USD/mes (aprox.)</strong>. Esto garantiza que su sitio esté operativo 24/7, con respaldos automáticos y seguridad avanzada.<br>
+            - <strong>Dominio Web:</strong> <strong>$17 USD/año (aprox.)</strong>. Mantiene la propiedad de su dirección web e incluye el certificado SSL de seguridad.<br><br>
             
             <strong>OPCIÓN 2: Administración Delegada (Servicio Integral)</strong><br>
             Si desea despreocuparse completamente de la infraestructura, podemos <strong>cotizar y gestionar por separado</strong> los servicios de alojamiento y dominio, incluyendo toda la administración y soporte técnico por nuestro equipo.`,
@@ -70,20 +70,20 @@ const faqs = [
   {
     question: "¿Qué ventajas ofrece el Sistema Administrativo personalizado?",
     answer: `Nuestro sistema administrativo ofrece ventajas estratégicas sobre soluciones genéricas de almacenamiento en la nube:<br><br>
-            ✨ <strong>Gestión Centralizada:</strong> Mediante una base de datos unificada que conecta todas las áreas de su negocio.<br>
-            ✨ <strong>Seguridad Reforzada:</strong> Con encriptación avanzada y control de accesos por roles.<br>
-            ✨ <strong>Eficiencia Operativa:</strong> A través de la automatización de procesos que reduce errores humanos y duplicación de trabajo.<br>
-            ✨ <strong>Escalabilidad:</strong> Diseñado para crecer con su empresa sin necesidad de migrar a otra plataforma.`,
+            • <strong>Gestión Centralizada:</strong> Mediante una base de datos unificada que conecta todas las áreas de su negocio.<br>
+            • <strong>Seguridad Reforzada:</strong> Con encriptación avanzada y control de accesos por roles.<br>
+            • <strong>Eficiencia Operativa:</strong> A través de la automatización de procesos que reduce errores humanos y duplicación de trabajo.<br>
+            • <strong>Escalabilidad:</strong> Diseñado para crecer con su empresa sin necesidad de migrar a otra plataforma.`,
   },
   {
     question: "¿Cuáles son los próximos pasos después de aprobar el proyecto?",
     answer: `Una vez aprobado el proyecto, iniciamos los siguientes pasos para la puesta en marcha de su plataforma:<br><br>
-            1️⃣ <strong>Reunión de Planificación:</strong> Definimos cronograma, requerimientos específicos y objetivos del proyecto.<br>
-            2️⃣ <strong>Recopilación de Materiales:</strong> Solicitamos logos, contenido, imágenes y preferencias de diseño.<br>
-            3️⃣ <strong>Migración (si aplica):</strong> Coordinamos la transferencia de dominio, contenido y correos desde su proveedor actual.<br>
-            4️⃣ <strong>Desarrollo y Pruebas:</strong> Creamos su plataforma y realizamos pruebas exhaustivas.<br>
-            5️⃣ <strong>Capacitación:</strong> Entrenamos a su equipo en el uso completo de la nueva plataforma.<br>
-            6️⃣ <strong>Lanzamiento:</strong> Ponemos en línea su nueva plataforma digital, culminando el proyecto.`,
+            Paso 1: <strong>Reunión de Planificación:</strong> Definimos cronograma, requerimientos específicos y objetivos del proyecto.<br>
+            Paso 2: <strong>Recopilación de Materiales:</strong> Solicitamos logos, contenido, imágenes y preferencias de diseño.<br>
+            Paso 3: <strong>Migración (si aplica):</strong> Coordinamos la transferencia de dominio, contenido y correos desde su proveedor actual.<br>
+            Paso 4: <strong>Desarrollo y Pruebas:</strong> Creamos su plataforma y realizamos pruebas exhaustivas.<br>
+            Paso 5: <strong>Capacitación:</strong> Entrenamos a su equipo en el uso completo de la nueva plataforma.<br>
+            Paso 6: <strong>Lanzamiento:</strong> Ponemos en línea su nueva plataforma digital, culminando el proyecto.`,
   },
 ];
 

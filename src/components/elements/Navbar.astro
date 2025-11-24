@@ -1,5 +1,5 @@
 ---
-import BtnLink from "../shared/BtnLink.astro";
+import ContactButton from "../shared/ContactButton.astro";
 import Container from "../shared/Container.astro";
 import Navitem from "../shared/Navitem.astro";
 
@@ -48,8 +48,9 @@ const navItems = [
 
           <div class="inline-flex text-lg font-semibold text-heading-1">
             <span
-          class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
-          ><strong>BIESAL</strong></span>
+              class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
+              ><strong>BIESAL</strong></span
+            >
           </div>
         </a>
       </div>
@@ -77,12 +78,15 @@ const navItems = [
         <div
           class="lg:min-w-max flex items-center sm:w-max w-full pb-6 lg:pb-0 border-b border-box-bg lg:border-0 px-6 lg:px-0"
         >
-          <BtnLink
-            text="Contáctenos"
-            href="#cta"
-            className="flex justify-center w-full sm:w-max"
-            variant="primary"
-          />
+          <a
+            href={`https://wa.me/50600000000?text=${encodeURIComponent("Hola, me gustaría obtener más información sobre sus servicios.")}`}
+            target="_blank"
+            rel="noopener
+          noreferrer"
+            class="block mt-6"
+          >
+            <ContactButton text="Contáctenos" icon="whatsapp" />
+          </a>
         </div>
       </div>
 
