@@ -22,7 +22,6 @@ BIESAL/
         demoLight.webp
     public/
         favicon.ico
-        favicon.svg
         images/
             owner1.jpeg
             owner2.jpeg

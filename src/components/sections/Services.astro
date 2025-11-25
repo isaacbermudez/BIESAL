@@ -14,7 +14,7 @@ const webPageImg2 = "/images/screenshot-web2.png";
 <section id="services">
   <Container className="flex flex-col midmd:flex-row gap-10 lg:gap-12">
     <div class="flex-1 flex midmd:w-7/12 lg:w-1/2 flex-col">
-      <Title> Nuestra Oferta: Ecosistema Digital Integrado </Title>
+      <Title>Ecosistema Digital Integrado </Title>
 
       <Paragraph className="mt-8 mb-10">
         En <span
@@ -52,6 +52,7 @@ const webPageImg2 = "/images/screenshot-web2.png";
               </div>
 
               {service.title === "SISTEMA ADMINISTRATIVO" && (
+                
                 <div class="relative group aspect-[4/3] w-full overflow-hidden rounded-xl border border-box-border bg-box-bg shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl">
                   
                   <div class="absolute top-0 z-20 flex w-full items-center gap-1.5 bg-gray-900/95 px-3 py-3 backdrop-blur">
@@ -117,29 +118,12 @@ const webPageImg2 = "/images/screenshot-web2.png";
                       Sistema Administrativo
                     </p>
                   </div>
+                  
                 </div>
               )}
 
               {service.title === "PÁGINA WEB" && (
                 <div class="w-full space-y-4">
-                  {/* Selector de página */}
-                  <div class="flex items-center justify-center gap-3 mb-2">
-                    <button
-                      type="button"
-                      class="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-box-border bg-box-bg text-heading-1 hover:border-primary hover:text-primary transition data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
-                      data-page-selector="davidsalazar"
-                      data-active="true"
-                    >
-                      davidsalazarservicios.com
-                    </button>
-                    <button
-                      type="button"
-                      class="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-box-border bg-box-bg text-heading-1 hover:border-primary hover:text-primary transition data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
-                      data-page-selector="efrata"
-                    >
-                      efratacr.com
-                    </button>
-                  </div>
 
                   <div class="relative aspect-[4/3] w-full">
                     {/* Preview 1 */}
@@ -198,6 +182,25 @@ const webPageImg2 = "/images/screenshot-web2.png";
                       </div>
                     </div>
                   </div>
+
+                  {/* Selector de página */}
+                  <div class="flex items-center justify-center gap-3 mb-2">
+                    <button
+                      type="button"
+                      class="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-box-border bg-box-bg text-heading-1 hover:border-primary hover:text-primary transition data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
+                      data-page-selector="davidsalazar"
+                      data-active="true"
+                    >
+                      davidsalazarservicios.com
+                    </button>
+                    <button
+                      type="button"
+                      class="px-3 py-1.5 text-xs sm:text-sm rounded-full border border-box-border bg-box-bg text-heading-1 hover:border-primary hover:text-primary transition data-[active=true]:bg-primary data-[active=true]:text-white data-[active=true]:border-primary"
+                      data-page-selector="efrata"
+                    >
+                      efratacr.com
+                    </button>
+                  </div>
                 </div>
               )}
 
@@ -215,7 +218,7 @@ const webPageImg2 = "/images/screenshot-web2.png";
               </ul>
 
               <a
-                href={`https://wa.me/50600000000?text=${encodeURIComponent("Hola, me gustaría tener más información sobre el producto " + service.title + ".")}`}
+                href={`https://wa.me/50687963720?text=${encodeURIComponent("Hola, me gustaría tener más información sobre el producto " + service.title + ".")}`}
                 target="_blank"
                 rel="noopener
           noreferrer"
@@ -233,28 +236,14 @@ const webPageImg2 = "/images/screenshot-web2.png";
       >
         <p
           class="text-lg font-bold text-heading-1 flex items-center justify-center gap-2"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="w-6 h-6 text-primary"
-            ><path d="m15 11-4 4h7l-4 4"></path><path d="m9 13 4-4H6l4-4"
-            ></path></svg
-          >
-          Recomendación Estratégica: Solución Integrada
+        >          
+          Recomendación Estratégica
         </p>
         <Paragraph className="mt-2 text-base">
           La verdadera ventaja de <span
             class="text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 from-20% via-primary via-30% to-green-600"
             ><strong>BIESAL</strong></span
-          > radica en la <strong>sinergia</strong> de ambos productos. La inversión
+          > radica en la sinergia de ambos productos. La inversión
           inicial en el ecosistema completo (Web + Sistema) comienza en solo
           <strong class="text-2xl font-extrabold">
             <span
@@ -265,13 +254,13 @@ const webPageImg2 = "/images/screenshot-web2.png";
           </strong>.
         </Paragraph>
         <Paragraph className="mt-4 text-sm italic text-heading-3/80">
-          Esta base le permite un <strong>Crecimiento Modular</strong> progresivo,
-          expandiendo su plataforma con Inventario, Proformas o Módulos de Clientes,
-          asegurando escalabilidad tecnológica.
+          Esta base le permite un crecimiento modular progresivo,
+          expandiendo su plataforma con Inventario, Proformas, Módulos de Clientes, entre otros,
+          y asegurando así la escalabilidad tecnológica.
         </Paragraph>
 
         <a
-          href={`https://wa.me/50600000000?text=${encodeURIComponent("Hola, me gustaría tener más información sobre ambos productos como solución integrada.")}`}
+          href={`https://wa.me/50687963720?text=${encodeURIComponent("Hola, me gustaría tener más información sobre ambos productos como solución integrada.")}`}
           target="_blank"
           rel="noopener noreferrer"
           class="inline-block mt-4"

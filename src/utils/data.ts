@@ -4,7 +4,7 @@ const services = [
   {
     title: "SISTEMA ADMINISTRATIVO",
     description:
-      "Plataforma propia para la <strong>gestión interna centralizada</strong> (solicitudes, clientes, finanzas, reportes, etc). <strong>Automatiza procesos clave</strong> para eliminar tareas manuales y garantizar el control operativo.",
+      "Plataforma propia para la gestión interna centralizada (solicitudes, clientes, finanzas, reportes, etc). Automatiza procesos clave para eliminar tareas manuales y garantizar el control operativo.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
            <path stroke-linecap="round" stroke-linejoin="round"
@@ -21,7 +21,7 @@ const services = [
   {
     title: "PÁGINA WEB",
     description:
-      "<strong>Desarrollo web moderno y adaptado a tu marca.</strong> Ofrece <strong>integración total y en tiempo real</strong> con el Sistema Administrativo, gestionando automáticamente todo el tráfico y clientes.",
+      "Desarrollo web moderno y adaptado a tu marca. Ofrece integración total y en tiempo real con el Sistema Administrativo, gestionando automáticamente todo el tráfico y clientes.",
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
            <path stroke-linecap="round" stroke-linejoin="round"
