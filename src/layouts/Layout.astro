@@ -11,34 +11,34 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
       content="Desarrollo de páginas web profesionales y sistemas administrativos a medida. Optimiza tu negocio y desbloquea nuevas fronteras digitales con BIESAL."
     />
     <title>BIESAL - {title}</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8GPG4P5KT6"
-    ></script>
-  </head>
-  <!-- Google tag (gtag.js) -->
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
 
-    gtag("config", "G-8GPG4P5KT6");
-  </script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- High-value preconnects for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Light-weight DNS hints for 3rd parties (non-critical) -->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://app.cal.com" />
+
+    <!-- Google Fonts stylesheet (display=swap to avoid FOIT) -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <!-- Finisher Header Background - Fixed to viewport -->
     <div
@@ -56,96 +56,70 @@ const { title } = Astro.props;
 
     <!-- WhatsApp Button -->
     <WhatsAppButton />
-  </body>
 
-  <!-- Load Finisher Header Script -->
-  <script is:inline src="/scripts/finisher-header.es5.min.js"></script>
+    <!-- Finisher Header Script (deferred) -->
+    <script src="/scripts/finisher-header.es5.min.js" defer></script>
 
-  <script is:inline>
-    // -------------------------------
-    // 1) Finisher Header themes
-    // -------------------------------
-    const lightTheme = {
-      count: 90,
-      size: { min: 2, max: 6, pulse: 0 },
-      speed: {
-        x: { min: 0, max: 0.35 },
-        y: { min: 0, max: 0.55 },
-      },
-      colors: {
-        // very light, almost white
-        background: "#f9fafb",
-        // your brand-ish accents
-        particles: ["#4f46e5", "#10b981", "#3b82f6"],
-      },
-      blending: "overlay",
-      opacity: { center: 0.9, edge: 0.08 },
-      skew: 0,
-      shapes: ["c"],
-    };
+    <!-- Theme + FinisherHeader init, runs after page load -->
+    <script is:inline>
+      const lightTheme = {
+        count: 90,
+        size: { min: 2, max: 6, pulse: 0 },
+        speed: {
+          x: { min: 0, max: 0.35 },
+          y: { min: 0, max: 0.55 },
+        },
+        colors: {
+          background: "#f9fafb",
+          particles: ["#4f46e5", "#10b981", "#3b82f6"],
+        },
+        blending: "overlay",
+        opacity: { center: 0.9, edge: 0.08 },
+        skew: 0,
+        shapes: ["c"],
+      };
 
-    const darkTheme = {
-      count: 110,
-      size: { min: 2, max: 7, pulse: 0 },
-      speed: {
-        x: { min: 0, max: 0.35 },
-        y: { min: 0, max: 0.6 },
-      },
-      colors: {
-        // very dark slate
-        background: "#020617",
-        // glowing version of your palette
-        particles: ["#6366f1", "#22c55e", "#38bdf8"],
-      },
-      blending: "screen",
-      opacity: { center: 0.95, edge: 0.05 },
-      skew: 0,
-      shapes: ["c"],
-    };
+      const darkTheme = {
+        count: 110,
+        size: { min: 2, max: 7, pulse: 0 },
+        speed: {
+          x: { min: 0, max: 0.35 },
+          y: { min: 0, max: 0.6 },
+        },
+        colors: {
+          background: "#020617",
+          particles: ["#6366f1", "#22c55e", "#38bdf8"],
+        },
+        blending: "screen",
+        opacity: { center: 0.95, edge: 0.05 },
+        skew: 0,
+        shapes: ["c"],
+      };
 
-    function initHeader(config) {
-      new FinisherHeader(config);
-    }
-
-    // -------------------------------
-    // 2) Theme detection on first load
-    // -------------------------------
-    function getInitialTheme() {
-      const stored = localStorage.getItem("appTheme");
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-
-      if (stored === "dark" || (!stored && prefersDark)) {
-        return "dark";
+      function initHeader(config) {
+        // FinisherHeader is provided by /scripts/finisher-header.es5.min.js
+        new FinisherHeader(config);
       }
-      return "light";
-    }
 
-    let currentTheme = getInitialTheme();
+      function getInitialTheme() {
+        try {
+          const stored = localStorage.getItem("appTheme");
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
 
-    if (currentTheme === "dark") {
-      document.documentElement.classList.add("dark");
-      initHeader(darkTheme);
-    } else {
-      document.documentElement.classList.remove("dark");
-      initHeader(lightTheme);
-    }
+          if (stored === "dark" || (!stored && prefersDark)) {
+            return "dark";
+          }
+        } catch (e) {
+          // ignore storage errors
+        }
+        return "light";
+      }
 
-    // -------------------------------
-    // 3) Theme switch button
-    // -------------------------------
-    const switchTheme = document.querySelector("[data-switch-theme]");
+      window.addEventListener("load", () => {
+        let currentTheme = getInitialTheme();
 
-    if (switchTheme) {
-      switchTheme.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        // Toggle theme value
-        currentTheme = currentTheme === "light" ? "dark" : "light";
-        localStorage.setItem("appTheme", currentTheme);
-
-        // Toggle html.dark class
         if (currentTheme === "dark") {
           document.documentElement.classList.add("dark");
           initHeader(darkTheme);
@@ -153,49 +127,99 @@ const { title } = Astro.props;
           document.documentElement.classList.remove("dark");
           initHeader(lightTheme);
         }
+
+        const switchTheme = document.querySelector("[data-switch-theme]");
+        if (switchTheme) {
+          switchTheme.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            currentTheme = currentTheme === "light" ? "dark" : "light";
+
+            try {
+              localStorage.setItem("appTheme", currentTheme);
+            } catch (e) {
+              // ignore
+            }
+
+            if (currentTheme === "dark") {
+              document.documentElement.classList.add("dark");
+              initHeader(darkTheme);
+            } else {
+              document.documentElement.classList.remove("dark");
+              initHeader(lightTheme);
+            }
+          });
+        }
       });
-    }
-  </script>
-  <script>
-    const toggleMenu = document.querySelector(
-      "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
-    const overlayNav = document.querySelector(
-      "[data-nav-overlay]"
-    ) as HTMLDivElement;
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-          navbar.style.height = `${navbar.scrollHeight}px`;
-        } else {
+    </script>
+
+    <!-- Navbar mobile toggle (no TS syntax, safe JS) -->
+    <script is:inline>
+      window.addEventListener("DOMContentLoaded", () => {
+        const toggleMenu = document.querySelector("[data-toggle-nav]");
+        const navbar = document.querySelector("[data-navbar]");
+        const overlayNav = document.querySelector("[data-nav-overlay]");
+
+        if (!toggleMenu || !navbar || !overlayNav) return;
+
+        function closeNav() {
           toggleMenu.setAttribute("data-open-nav", "false");
           overlayNav.setAttribute("data-is-visible", "false");
           document.body.classList.remove("!overflow-y-hidden");
           navbar.style.height = "0px";
         }
-      });
 
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
-      });
+        toggleMenu.addEventListener("click", (e) => {
+          e.preventDefault();
+          const isOpen = toggleMenu.getAttribute("data-open-nav") === "true";
 
-      overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
+          if (!isOpen) {
+            toggleMenu.setAttribute("data-open-nav", "true");
+            overlayNav.setAttribute("data-is-visible", "true");
+            document.body.classList.add("!overflow-y-hidden");
+            navbar.style.height = `${navbar.scrollHeight}px`;
+          } else {
+            closeNav();
+          }
+        });
+
+        navbar.addEventListener("click", () => {
+          closeNav();
+        });
+
+        overlayNav.addEventListener("click", () => {
+          closeNav();
+        });
       });
-    }
-  </script>
+    </script>
+
+    <!-- Google Analytics (loaded during idle / later, not blocking) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+
+      function loadGtag() {
+        const script = document.createElement("script");
+        script.src =
+          "https://www.googletagmanager.com/gtag/js?id=G-8GPG4P5KT6";
+        script.async = true;
+        document.head.appendChild(script);
+
+        gtag("js", new Date());
+        gtag("config", "G-8GPG4P5KT6");
+      }
+
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(loadGtag);
+      } else {
+        setTimeout(loadGtag, 3000);
+      }
+    </script>
+  </body>
 </html>
+
 <style is:global>
   :root {
     --color-bg: 255 255 255;
@@ -211,7 +235,7 @@ const { title } = Astro.props;
   .dark {
     --color-bg: 3 7 18;
     --color-box: 17 24 39;
-    --box-border: 243 244 246/0.1;
+    --box-border: 243 244 246 / 0.1;
     --box-sd: transparent;
 
     --heading-1: 255 255 255;
@@ -222,6 +246,7 @@ const { title } = Astro.props;
   html {
     scroll-behavior: smooth;
   }
+
   body {
     font-family: "Raleway", sans-serif;
   }
