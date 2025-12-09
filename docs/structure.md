@@ -17,23 +17,16 @@ BIESAL/
         types.d.ts
         collections/
     docs/
-    screens/
-        demoDark.webp
-        demoLight.webp
     public/
         favicon.ico
+        favicon.svg
         images/
-            owner1.jpeg
-            owner2.jpeg
-            owner3.jpeg
-            screenshot-sistema.png
-            screenshot-web1.png
-            screenshot-web2.png
-            screenshot-web3.png
-        logos/
-            paypallogo.png
-            slack.png
-            spotify.png
+            SistemaGIF.gif
+            owner1.webp
+            owner2.webp
+            owner3.webp
+            screenshot-web1.webp
+            screenshot-web2.webp
         scripts/
             finisher-header.es5.min.js (Lines: 1, Imports: No imports)
     .vscode/
@@ -62,6 +55,7 @@ BIESAL/
             shared/
                 BtnLink.astro
                 Button.astro
+                ContactButton.astro
                 Container.astro
                 FooterNav.astro
                 Navitem.astro

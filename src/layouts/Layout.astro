@@ -59,6 +59,12 @@ const { title } = Astro.props;
 
     <!-- Finisher Header Script (deferred) -->
     <script src="/scripts/finisher-header.es5.min.js" defer></script>
+    <!-- TrustBox script -->
+    <script
+      type="text/javascript"
+      src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+      async></script>
+    <!-- End TrustBox script -->
 
     <!-- Theme + FinisherHeader init, runs after page load -->
     <script is:inline>
@@ -104,11 +110,8 @@ const { title } = Astro.props;
       function getInitialTheme() {
         try {
           const stored = localStorage.getItem("appTheme");
-          const prefersDark = window.matchMedia(
-            "(prefers-color-scheme: dark)"
-          ).matches;
-
-          if (stored === "dark" || (!stored && prefersDark)) {
+          // Only return dark if explicitly set by user, otherwise always light
+          if (stored === "dark") {
             return "dark";
           }
         } catch (e) {
@@ -202,8 +205,7 @@ const { title } = Astro.props;
 
       function loadGtag() {
         const script = document.createElement("script");
-        script.src =
-          "https://www.googletagmanager.com/gtag/js?id=G-8GPG4P5KT6";
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-8GPG4P5KT6";
         script.async = true;
         document.head.appendChild(script);
 
