@@ -5,9 +5,20 @@ import WhatsAppButton from "../components/elements/WhatsAppButton.astro";
 
 export interface Props {
   title: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "Desarrollo de páginas web profesionales y sistemas administrativos a medida en Costa Rica. Optimiza, automatiza tu negocio y desbloquea nuevas fronteras digitales con BIESAL.",
+  ogImage = "/images/Logo_1024x1024.jpg",
+  canonical = "https://biesal.com"
+} = Astro.props;
+
+const fullTitle = `BIESAL - ${title}`;
+const fullOgImage = new URL(ogImage, Astro.site).href;
 ---
 
 <!doctype html>
@@ -17,18 +28,37 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Desarrollo de páginas web profesionales y sistemas administrativos a medida en Costa Rica. Optimiza, automatiza tu negocio y desbloquea nuevas fronteras digitales con BIESAL."
-    />
+    
+    <!-- Primary Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="desarrollo web costa rica, páginas web profesionales, sistemas administrativos, automatización empresarial, diseño web heredia, software a medida" />
+    <meta name="author" content="BIESAL" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:locale" content="es_CR" />
+    <meta property="og:site_name" content="BIESAL" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={fullOgImage} />
+    
     <!-- Google Site Verification -->
-    <meta
-      name="google-site-verification"
-      content="_QwyqSR2XVZEGkv3HMIVIohPC7aApIVEMNwlOYS3rCU"
-    />
+    <meta name="google-site-verification" content="_QwyqSR2XVZEGkv3HMIVIohPC7aApIVEMNwlOYS3rCU" />
+    
     <!-- Bing Site Verification -->
     <meta name="msvalidate.01" content="B598D09F351A7E418E130D62AA8102A1" />
-    <title>BIESAL - {title}</title>
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
@@ -49,6 +79,39 @@ const { title } = Astro.props;
 
     <!-- Elfsight Google Reviews -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
+    
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "BIESAL",
+        "description": "Desarrollo de páginas web profesionales y sistemas administrativos a medida en Costa Rica",
+        "url": "https://biesal.com",
+        "logo": "https://biesal.com/favicon.svg",
+        "image": "https://biesal.com/images/Logo_1024x1024.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Heredia",
+          "addressRegion": "Heredia",
+          "addressCountry": "CR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "9.9981",
+          "longitude": "-84.1170"
+        },
+        "sameAs": [
+          "https://www.facebook.com/biesal",
+          "https://www.instagram.com/biesal"
+        ],
+        "priceRange": "$$",
+        "areaServed": {
+          "@type": "Country",
+          "name": "Costa Rica"
+        }
+      }
+    </script>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <!-- Finisher Header Background - Fixed to viewport -->
