@@ -17,8 +17,20 @@ const servicesNav = [
 // --- Contact Information (Hardcoded for this component) ---
 const contactInfo = {
   email: "soluciones@biesal.com",
-  address: "San Roque, Barva, Heredia, 40204, Costa Rica", // Added city/country for completeness
+  address: "San Roque, Barva, Heredia, 40204, Costa Rica",
 };
+
+// --- Google Maps Configuration ---
+const mapsConfig = {
+  location: {
+    title: "BIESAL",
+    address1: "Ruta Nacional Secundaria 119, San Roque",
+    address2: "Barva, Heredia, Costa Rica",
+    coords: { lat: 10.0140973, lng: -84.139467 },
+    placeId: "ChIJqy4WC-v7oI8RRgJWC56CrSk"
+  }
+};
+
 // Define social links for icons (using your existing SVGs)
 const socialLinks = [
   {
@@ -108,25 +120,19 @@ const socialLinks = [
           Nuestro equipo transforma tus ideas en realidades digitales,
           garantizando calidad, rendimiento y escalabilidad.
         </Paragraph>
-        <div class="mb-10">
-          <!-- TrustBox widget - Review Collector -->
-          <div
-            class="trustpilot-widget"
-            data-locale="en-US"
-            data-template-id="56278e9abfbbba0bdcd568bc"
-            data-businessunit-id="6932332e19cca53d161e396d"
-            data-style-height="52px"
-            data-style-width="100%"
-            data-token="32f1d644-a05f-4ab3-a82b-74ad8a156c9a"
-          >
-            <a
-              href="https://www.trustpilot.com/review/biesal.com"
-              target="_blank"
-              rel="noopener">Trustpilot</a
-            >
-          </div>
+        <!-- Mini Map Preview -->
+        <div class="w-full max-w-lg h-40 rounded-lg overflow-hidden shadow-md mb-8">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d402.85179932226197!2d-84.13938696445335!3d10.014033746955702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fbeb0b162eab%3A0x29ad829e0b560246!2sBIESAL!5e1!3m2!1sen!2scr!4v1765388447764!5m2!1sen!2scr"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de BIESAL"
+          ></iframe>
         </div>
-        <!-- End TrustBox widget -->
         <!-- Social Links -->
         <div
           class="flex items-center gap-4 text-gray-500 dark:text-gray-400 mt-auto"
@@ -181,7 +187,7 @@ const socialLinks = [
   </Container>
 
   <!-- Copyright Bar -->
-  <div class="bg-gray-200 dark:bg-gray-800 py-4 relative z-10">
+  <div class="bg-gray-200 dark:bg-gray-800 py-4 relative z-10 mt-10">
     <Container>
       <div
         class="flex justify-center md:justify-start items-center text-sm text-gray-600 dark:text-gray-400"
