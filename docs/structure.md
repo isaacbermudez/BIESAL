@@ -27,6 +27,8 @@ BIESAL/
             owner3.webp
             screenshot-web1.webp
             screenshot-web2.webp
+        zohoverify/
+            verifyforzoho.html
         scripts/
             finisher-header.es5.min.js (Lines: 1, Imports: No imports)
     .vscode/
