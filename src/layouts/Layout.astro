@@ -25,7 +25,7 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="generator" content={Astro.generator} />
     
@@ -62,7 +62,7 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- High-value preconnects for fonts -->
+    <!-- PERFORMANCE OPTIMIZATION: Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -71,13 +71,21 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
     <link rel="dns-prefetch" href="https://app.cal.com" />
     <link rel="dns-prefetch" href="https://elfsightcdn.com" />
 
-    <!-- Google Fonts stylesheet (display=swap to avoid FOIT) -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+    <!-- PERFORMANCE OPTIMIZATION: Preload critical fonts -->
+    <link 
+      rel="preload" 
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" 
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+      />
+    </noscript>
 
-    <!-- Elfsight Google Reviews -->
+    <!-- Elfsight Google Reviews (async, non-blocking) -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
     
     <!-- Structured Data / Schema.org -->
