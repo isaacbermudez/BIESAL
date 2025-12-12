@@ -16,11 +16,34 @@ BIESAL/
         settings.json
         types.d.ts
         collections/
+    dist/
+        favicon.ico
+        favicon.svg
+        index.html
+        robots.txt
+        sitemap-0.xml
+        sitemap-index.xml
+        images/
+            Logo_1024x1024.webp
+            SistemaGIF.gif
+            owner1.webp
+            owner2.webp
+            owner3.webp
+            screenshot-web1.webp
+            screenshot-web2.webp
+        zohoverify/
+            verifyforzoho.html
+        scripts/
+            finisher-header.es5.min.js (Lines: 1, Imports: No imports)
+        _astro/
+            index.BdqmytaM.css
     docs/
     public/
         favicon.ico
         favicon.svg
+        robots.txt
         images/
+            Logo_1024x1024.webp
             SistemaGIF.gif
             owner1.webp
             owner2.webp
