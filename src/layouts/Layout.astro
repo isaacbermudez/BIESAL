@@ -10,11 +10,11 @@ export interface Props {
   canonical?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Desarrollo de páginas web profesionales y sistemas administrativos a medida en Costa Rica. Optimiza, automatiza tu negocio y desbloquea nuevas fronteras digitales con BIESAL.",
   ogImage = "/images/Logo_1024x1024.webp",
-  canonical = "https://biesal.com"
+  canonical = "https://biesal.com",
 } = Astro.props;
 
 const fullTitle = `BIESAL - ${title}`;
@@ -28,16 +28,19 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Primary Meta Tags -->
     <title>{fullTitle}</title>
     <meta name="title" content={fullTitle} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="desarrollo web costa rica, páginas web profesionales, sistemas administrativos, automatización empresarial, diseño web heredia, software a medida" />
+    <meta
+      name="keywords"
+      content="desarrollo web costa rica, páginas web profesionales, sistemas administrativos, automatización empresarial, diseño web heredia, software a medida"
+    />
     <meta name="author" content="BIESAL" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -46,17 +49,20 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
     <meta property="og:image" content={fullOgImage} />
     <meta property="og:locale" content="es_CR" />
     <meta property="og:site_name" content="BIESAL" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonical} />
     <meta property="twitter:title" content={fullTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullOgImage} />
-    
+
     <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="_QwyqSR2XVZEGkv3HMIVIohPC7aApIVEMNwlOYS3rCU" />
-    
+    <meta
+      name="google-site-verification"
+      content="_QwyqSR2XVZEGkv3HMIVIohPC7aApIVEMNwlOYS3rCU"
+    />
+
     <!-- Bing Site Verification -->
     <meta name="msvalidate.01" content="B598D09F351A7E418E130D62AA8102A1" />
 
@@ -69,12 +75,11 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
     <!-- Light-weight DNS hints for 3rd parties (non-critical) -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://app.cal.com" />
-    <link rel="dns-prefetch" href="https://elfsightcdn.com" />
 
     <!-- PERFORMANCE OPTIMIZATION: Preload critical fonts -->
-    <link 
-      rel="preload" 
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" 
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
@@ -85,9 +90,26 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
       />
     </noscript>
 
-    <!-- Elfsight Google Reviews (async, non-blocking) -->
-    <script src="https://elfsightcdn.com/platform.js" async></script>
-    
+    <!-- Taggbox Schema.org for Reviews -->
+    <script
+      type="application/ld+json"
+      class="taggbox-schema-code"
+      data-ref="UVFLYXBqalJmMGhQSE9ueGRTVHBJZz09"
+      data-feed-ref="NktJL2NuRU5wSWw1ME8xNGdiaDQ5dz09"
+    >
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "BIESAL",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": 5,
+          "reviewCount": 1
+        }
+      }
+    </script>
+    <script src="https://widget.taggbox.com/js/schema.js"></script>
+
     <!-- Structured Data / Schema.org -->
     <script type="application/ld+json">
       {
@@ -134,12 +156,6 @@ const fullOgImage = new URL(ogImage, Astro.site).href;
       <Navbar />
       <slot />
 
-      <!-- Elfsight Google Reviews Widget -->
-      <div
-        class="elfsight-app-0c12f1f6-b967-4bc8-b522-e240661a1c82"
-        data-elfsight-app-lazy
-      >
-      </div>
 
       <Footer />
     </div>
